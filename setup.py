@@ -18,7 +18,6 @@ if not BOOST_DIR.exists():
     from zipfile import ZipFile
     URL = 'https://dl.bintray.com/boostorg/release/1.74.0/source/boost_1_74_0.zip'
     with TemporaryDirectory() as tmpdir:
-    # tmpdir = str(pathlib.Path('tmp').resolve())
         tmpdirp = pathlib.Path(tmpdir)
         tmpzip = tmpdirp / 'tmp.zip'
         with open(tmpzip, 'wb') as fp:
@@ -32,7 +31,7 @@ if not BOOST_DIR.exists():
 
 setup(
     name='boostinator',
-    version='0.0.1',
+    version='0.0.2',
     author='Nicholas McKibben',
     author_email='nicholas.bgp@gmail.com',
     packages=find_packages(),
@@ -43,4 +42,8 @@ setup(
     long_description=open('README.rst').read(),
     install_requires=open('requirements.txt', encoding='utf-8').read().split(),
     python_requires='>=3.6',
+    include_package_data=True,
+    package_data={
+        '': ['*.hpp'],
+    },
 )
