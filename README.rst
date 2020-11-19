@@ -31,8 +31,10 @@ Exposes a single function to get the include directory:
 
 We can now use the libraries when compiling extensions, e.g.:
 
-.. code-block::
+.. code-block:: python
 
+   from distutils.core import setup
+   from setuptools import Extension
    from boostinator import get_include_dir
 
    setup(
